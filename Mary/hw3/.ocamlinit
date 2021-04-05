@@ -1,0 +1,15 @@
+#use "topfind";;
+#directory "_build";;
+#load "assert.cmo";;
+#load "books.cmo";;
+#load "setInterface.cmo";;
+#load "higherOrder.cmo";;
+#load "tree.cmo";;
+#load "listSet.cmo";;
+#load "treeSet.cmo";;
+#use "higherOrder.ml";;
+#use "tree.ml";;
+#use "listSet.ml";;
+#use "treeSet.ml";;
+#use "setTest.ml";;
+#use "vocab.ml";;

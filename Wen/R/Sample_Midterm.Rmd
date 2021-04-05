@@ -1,0 +1,219 @@
+---
+title: "STAT GU4206/GR5206 Sample Midterm"
+author: "Gabriel"
+date: "3/8/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The STAT GU4206/GR5206 Midterm is open notes, open book(s), open computer and online resources are allowed.  Students are required to be physically present during the exam. The TA/instructor will be available to answer questions during the exam. Students are **not** allowed to communicate with any other people regarding the exam with the exception of the instructor (Gabriel Young) and course TAs.  This includes emailing fellow students, using WeChat and other similar forms of communication.  If there is any suspicion of one or more students cheating, further investigation will take place.  If students do not follow the guidelines, they will receive a zero on the exam and potentially face more severe consequences.  The exam will be posted on Canvas at 10:05AM.  Students are required to submit both the .pdf (or .html) and .Rmd files on Canvas by 12:40AM. If students fail to knit the pdf or html file, the TA will take off a significant portion of the grade. Students will also be significantly penalized for late exams. If for some reason you are unable to upload the completed exam on Canvas by 12:40PM, then immediately email markdown file to the course TA.
+
+\vspace{.5 in}
+
+
+**Important:**  If you have a bug in your code then **RMarkdown** will not knit. I highly recommend that you comment out any non-working code.  That way your file will knit and you will not be penalized for only uploading the Rmd file.    
+
+
+\pagebreak
+
+
+# Part I - Character data and regular expressions
+
+Consider the following toy dataset **strings_data.csv**.  This dataset has 461 rows (or length 461 using readLines) and consists of random character strings. 
+```{r}
+char_data <- readLines("strings_data.csv")
+head(char_data,8)
+length(char_data)
+```
+Among the  461 cases, several rows contain numeric digits and a specific string of the form "Group_Letter", where "Letter"" is a single uppercase letter.  For example, the 6th element contains the symbols "0.2","9.454","Group_I". 
+
+```{r}
+char_data[6]
+c("0.2","9.454","Group_I")
+```
+
+## Problem 1
+
+Your task is to extract the numeric digits and the group variable from this character string vector. Notes:
+\begin{enumerate}
+\item The first number {\bf x} is a single digit followed by a period and at least one digit.  There are a few cases where the first number is only a single digit without a period. 
+\item The second number {\bf y} is one or two digits followed by a period and at least one digit. Note that the second number can be negative or positive. 
+\item The group value is the string "Group\_" followed by a single capital letter.  For example "Group\_I" and "Group\_S" are both elements of the third string of interest.  
+\end{enumerate}
+Once you extract all three symbols, make sure to convert the numeric digits to a numeric mode (use **as.numeric()**) and organize the scrapped information in a dataframe.  Your final dataframe should have 230 rows by 3 columns. The first three rows of your dataframe should look like the following output:   
+
+```{r}
+data.frame(x=c(0.20,0.36,0.56),
+           y=c(9.454,9.454,9.454),
+           Group=c("Group_I","Group_I","Group_I"))
+```
+
+
+**Solution**
+```{r}
+## Code goes here ------
+```
+
+
+## Problem 2
+
+Use both **base R** and **ggplot** to construct a scatterplot of the variables **y** versus **x** and split the colors of the plot by the variable **Group**. Also include a legend, relabel the axes and include a title.  Make sure the legend doesn't cover up the plot in base R.   
+
+**Base R plot**
+```{r}
+## Code goes here ------
+```
+
+**ggplot plot**
+```{r}
+library(ggplot2)
+## Code goes here ------
+```
+
+## Part II - Data proccessing and exploratory analysis 
+
+The data comprise of roughly 25,000 records for males between the age of 18 and 70 who are full time workers. A variety of variables are given for each subject: years of education and job experience, college graduate (yes, no), working in or near a city (yes, no), US region (midwest, northeast, south, west), commuting distance, number of employees in a company, and race (African America, Caucasian, Other). The response variable is weekly wages (in dollars). The data are taken many decades ago so the wages are low compared to current times.
+
+
+```{r}
+salary_data <- read.csv("salary.txt",as.is=T,header=T)
+head(salary_data)
+```
+
+Below I am defining a new variable in the **salary_data** dataframe which computes the natural logarithm of wages. 
+
+```{r}
+salary_data$log_wage <- log(salary_data$wage) 
+```
+
+## Problem 3
+
+Use the **summary()** function on the salary dataset to check if the variables make sense.  Specifically, one of the continuous variables has some "funny" values.  Remove the rows of the dataframe corresponding to these strange values.  If you can't figure this question out, then move on because you can still solve Problem 4 & 5 without Problem 3.    
+
+
+**Solution**
+```{r}
+## Code goes here ------
+```
+
+
+## Problem 4
+
+Using **ggplot**, plot **log_wages** against work experience, i.e., **x=exp** and **y=log_wages**. In this graphic, change the transparency of the points so that the scatterplot does not look so dense.  **Note:** the **alpha** parameter changes the transparency. Also label the plot appropriately. 
+
+**Solution**
+```{r}
+library(ggplot2)
+## Code goes here ------
+```
+
+
+Notice that your graphic constructed from Problem 4 shows a quadratic or curved relationship between **log_wages** against **exp**. The next task is to plot three quadratic functions for each race level "black", "white" and "other".  To estimate the quadratic fit, you can use the following function **quad_fit**: 
+
+```{r}
+quad_fit <- function(data_sub) {
+  return(lm(log_wage~exp+I(exp^2),data=data_sub)$coefficients)
+}
+quad_fit(salary_data)
+```
+The above function computes the least squares quadratic fit and returns coefficients $\hat{a}_1$,$\hat{a}_2$ and $\hat{a}_3$, where 
+\[
+\hat{Y}=\hat{a}_1+\hat{a}_2 x+\hat{a}_3x^2
+\]
+and $\hat{Y}=\log(\text{wage})$ and $x=\text{exp}$. 
+
+Use **ggplot** to accomplish this task or use base R graphics for partial credit.  Make sure to include a legend and appropriate labels.  
+
+**Solution**
+```{r}
+## Code goes here ------
+```
+
+# Part III - The Bootstrap 
+
+## Data and model description
+
+Consider a study that assesses how a drug affects someone's resting heart rate.  The study consists of $n=60$ respondents.  The researcher randomly places the respondents into three groups; control group and two dosage groups (20 each).  The first drug group is given 200 mg $(x_1)$ and the second drug group is given 500 mg $(x_2)$. She then measures each respondent's resting heart rate 1 hour after the drug was administered ($Y$).  She also measures other characteristics of each respondent; age ($x_3$), weight ($x_4$), height ($x_5$), gender ($x_6$) and initial resting heart rate before the drug was administered ($x_7$).  The statistical linear regression model is:
+\[
+Y=\beta_0+\beta_1 x_1+\beta_2 x_2+\beta_3 x_3+\beta_4 x_4+\beta_5 x_5+\beta_6 x_6+\beta_7 x_7+\epsilon, \ \ \ \ \epsilon \overset{iid}\sim N(0,\sigma^2).
+\]
+There are three dummy variables for this model:
+\[
+x_1=\begin{cases}1 \ \ \ \ \text{if  200mg}\\ 0 \ \ \ \ \text{otherwse} \end{cases} \ \ \ \ \ 
+x_2=\begin{cases}1 \ \ \ \ \text{if  500mg}\\ 0 \ \ \ \ \text{otherwse} \end{cases}  \ \ \ x_6=\begin{cases}1 \ \ \ \ \text{if  male}\\ 0 \ \ \ \ \text{otherwse} \end{cases} 
+\]
+Based on the above variable coding, the control group is described through the intercept $\beta_0$. 
+
+## Exploratory analysis
+
+The dataset **drugstudy.csv** is read in below.  
+```{r}
+drugstudy <- read.table("drugstudy.txt",header=T)
+head(drugstudy)
+```
+
+## Problem 5
+
+Compute the average final resting heart rate for each drug group. Also compute the average initial resting heart rate for each drug group.  Display the results in dataframe or table.
+
+**Solution**
+```{r}
+## Code goes here ------
+```
+
+## Problem 6
+
+Construct a comparative boxplot of the respondents final resting heart rate for each drug group. Use base R or ggplot.  Make sure to label the plot appropriately. 
+
+**Solution**
+```{r}
+## Code goes here ------
+```
+
+
+## Nonparametric analysis (bootstrap)
+
+Consider a nonparametric approach to assess the drug's impact on final resting heart rate.  More specifically, the researcher is going to perform a bootstrap procedure on the following parameters:
+\begin{enumerate}
+\item $\beta_1$
+\item $\beta_2$
+\item $\beta_1-\beta_2$
+\end{enumerate}
+The final bootstrap intervals incorporate the three testing procedures: 
+\begin{enumerate}
+\item $H_0:\beta_1=0 \ \ \ \text{vs.} \ \ \ H_A:\beta_1\neq0$
+\item $H_0:\beta_2=0 \ \ \ \text{vs.} \ \ \ H_A:\beta_2\neq0$
+\item $H_0:\beta_1-\beta_2=0 \ \ \ \text{vs.} \ \ \ H_A:\beta_1-\beta_2\neq0$
+\end{enumerate}
+When testing $\beta_1=0$, we are investigating the impact of the 200mg dosage group versus the control group. Similarly, when testing $\beta_2=0$, we are investigating the impact of the 500mg dosage group versus the control group.  The third test $\beta_1-\beta_2=0$ is describing if the low dosage group has the same impact on resting heart rate as the high dosage group. 
+
+## Problem 7
+
+**Perform the follwong tasks!**
+
+Run a bootstrap procedure on parameters $\beta_1,\beta_2$ and $\beta_1-\beta_2$.  (i) Construct a table or dataframe displaying the least squares estimators of $\hat{\beta}_1,\hat{\beta}_2$ and $\hat{\beta}_1-\hat{\beta}_2$ of the original dataset, (ii) the bootstrapped standard errors, and (iii) the bootstrap 95\% confidence intervals. Use the traditional bootstrap intervals with $B=1000$ boot iterations. The table should look similar to the following output:
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|cccc|}
+\hline
+Parameter & Estimate & Boot SE & 95\% Boot L-Bound & 95\% Boot U-Bound\\
+\hline
+Beta1 & \# & \# & \# & \#\\
+Beta2 & \# & \# & \# & \# \\
+Beta1\_Beta2 & \# & \# & \# & \# \\
+\hline
+\end{tabular}
+\end{table}
+
+**Solution**
+```{r}
+## Code goes here ------
+```
+
+## Problem 8
+
+Briefly interpret your results. More specifically, check if zero falls in the bootstrap intervals and conclude if we do or do not show statistical significance.    
+

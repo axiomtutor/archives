@@ -1,0 +1,26 @@
+### Starting build.
+# Target: assert.mli.depends, tags: { extension:mli, file:assert.mli, ocaml, ocamldep, quiet }
+/home/addem/.opam/4.08.1/bin/ocamldep.opt -modules assert.mli > assert.mli.depends
+# Target: assert.cmi, tags: { byte, compile, extension:mli, file:assert.mli, interf, ocaml, quiet }
+/home/addem/.opam/4.08.1/bin/ocamlc.opt -c -o assert.cmi assert.mli
+# Target: assert.ml.depends, tags: { extension:ml, file:assert.ml, ocaml, ocamldep, quiet }
+/home/addem/.opam/4.08.1/bin/ocamldep.opt -modules assert.ml > assert.ml.depends
+# Target: assert.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:assert.cmo, file:assert.ml, implem, ocaml, quiet }
+/home/addem/.opam/4.08.1/bin/ocamlc.opt -c -o assert.cmo assert.ml
+# Target: imp.mli.depends, tags: { extension:mli, file:imp.mli, ocaml, ocamldep, quiet }
+/home/addem/.opam/4.08.1/bin/ocamldep.opt -modules imp.mli > imp.mli.depends
+# Target: imp.cmi, tags: { byte, compile, extension:mli, file:imp.mli, interf, ocaml, quiet }
+/home/addem/.opam/4.08.1/bin/ocamlc.opt -c -o imp.cmi imp.mli
+# Target: imp.ml.depends, tags: { extension:ml, file:imp.ml, ocaml, ocamldep, quiet }
+/home/addem/.opam/4.08.1/bin/ocamldep.opt -modules imp.ml > imp.ml.depends
+# Target: imp.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:imp.cmo, file:imp.ml, implem, ocaml, quiet }
+/home/addem/.opam/4.08.1/bin/ocamlc.opt -c -o imp.cmo imp.ml
++ /home/addem/.opam/4.08.1/bin/ocamlc.opt -c -o imp.cmo imp.ml
+File "imp.ml", line 99, characters 20-21:
+99 |   partial_transform f [0; -1; 2; -3] = [4]
+                         ^
+Error: This expression has type int -> int option
+       but an expression was expected of type 'a option -> 'b option
+       Type int is not compatible with type 'a option 
+Command exited with code 2.
+# Compilation unsuccessful.

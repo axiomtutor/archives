@@ -1,0 +1,23 @@
+{
+    // Configure your Run and Preview buttons here.
+    // Run button configuration
+    "commands": {
+	"Build Project": "make ",
+	"Run HigherOrder": "clear && make runHigherOrder",
+	"Run Tree": "clear && make runTree",
+	"Run SetTest": "clear && make runSetTest",
+	"Run Vocab": "clear && make runVocab",
+	"Clean Project": "make clean; sleep 1 ; exit 0",
+	"Prettify File": "ocp-indent -i {{filepath}}; sleep 1; exit 0",
+  "Style Check Project": "camelot -show student -c arthur.json",		
+	"Zip (for submission)": "make zip",
+  "UTop": "make utop && utop"
+    },
+
+    // Preview button configuration
+    "preview": {
+	"CIS 120": "http://www.cis.upenn.edu/~cis120/current/index.shtml",
+	"Homework Instructions": "https://www.cis.upenn.edu/~cis120/current/hw/hw03/",
+	"Viewer": "https://{{domain3000}}/"
+    }
+}
