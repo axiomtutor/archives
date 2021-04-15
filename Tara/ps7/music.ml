@@ -180,6 +180,7 @@ keep keep the original list around as well. Both need to be recursive,
 since you will call both the inner and outer functions at some
 point. See below for some examples.
 ......................................................................*)
+<<<<<<< HEAD
 
 let rec insert_obj_stop (o : obj) 
                         (s : event stream) 
@@ -193,6 +194,8 @@ let rec insert_obj_stop (o : obj)
       then 
 
 
+=======
+>>>>>>> 73d46a5adc67265cffe993aec14bb7d91ca53f66
 let rec list_to_stream (lst : obj list) : event NLS.stream =
   let rec list_to_stream_aux remaining =
     failwith "list_to_stream not implemented"
@@ -222,11 +225,15 @@ let transpose_pitch ((p, oct) : pitch) (half_steps : int) : pitch =
 
 let transpose (str : event NLS.stream) (half_steps : int)
             : event NLS.stream =
+<<<<<<< HEAD
    NLS.smap (fun e -> 
                match e with 
                | Tone (f,(p,oct),i) -> if oct < 0 then Tone (f,(p,oct),i) 
                | Stop (f,(p,oct)) -> 
             )
+=======
+    failwith "transpose not implemented" ;;
+>>>>>>> 73d46a5adc67265cffe993aec14bb7d91ca53f66
 
 (*----------------------------------------------------------------------
                          Testing music streams

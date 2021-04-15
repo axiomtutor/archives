@@ -1,0 +1,4 @@
+"Rule: ocaml: cmo* -> byte (%=lab8_part1 )": "\193\1364\194\207Qs\230\204t\029\254\020H\140\022"
+"Rule: ocaml: ml -> cmo & cmi (%=lab8_part1 )": "N\179\158>\028;g7\253\140j\202\235!<\190"
+"Resource: /home/addem/Desktop/Tara/lab8/lab8_part1.ml": "\165\0030\208\b\238\145\243D8\007\197\2135\141\141"
+"Rule: ocaml dependencies ml (%=lab8_part1 )": "tSs\170\185\233H\164\155\023%A'\233p\217"

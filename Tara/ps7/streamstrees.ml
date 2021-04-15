@@ -191,7 +191,11 @@ of the intended output of `print_depth` below.
 ......................................................................*)
    
 let print_depth (n : int) (indent : int) (t : int tree) : unit =
+<<<<<<< HEAD
   let rec 
+=======
+  let rec (queue : t * int list ) : = 
+>>>>>>> 73d46a5adc67265cffe993aec14bb7d91ca53f66
 
 (*......................................................................
 tmap f t -- Returns a tree obtained by mapping the function `f` over

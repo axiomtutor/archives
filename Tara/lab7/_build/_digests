@@ -1,0 +1,7 @@
+"Rule: ocaml: ml -> cmo & cmi (%=color )": "\029\027\141M6t\024\161\186\142WX\220\209\188;"
+"Rule: ocaml: ml -> cmo & cmi (%=lab7_part2 )": ".T\2297\186\198A\211\018\134\245\022\168\221\026S"
+"Rule: ocaml: cmo* -> byte (%=lab7_part2 )": "\006\004mi>\248_7\235kp\156\149\021\208D"
+"Resource: /home/addem/Desktop/Tara/lab7/color.ml": "B\230\139T\195\205\253\027$S\166$\236\216\174\253"
+"Rule: ocaml dependencies ml (%=color )": "\029ew\236M\\\174\160T\152\164\019\199\186\152U"
+"Rule: ocaml dependencies ml (%=lab7_part2 )": "\020V\191\233x\211\246\211j\n<\249\161b\254M"
+"Resource: /home/addem/Desktop/Tara/lab7/lab7_part2.ml": "\131\251\253:\150\224\b>\243\145Jg\241\145\182^"

@@ -1,3 +1,7 @@
 S *
 B _build
+<<<<<<< HEAD
+=======
+PKG CS51Utils
+>>>>>>> 73d46a5adc67265cffe993aec14bb7d91ca53f66
 PKG graphics

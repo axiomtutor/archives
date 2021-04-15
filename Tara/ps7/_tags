@@ -1,3 +1,7 @@
 <AsnLib> or <Lib>: include
 <_build>: include
+<<<<<<< HEAD
 <**/*>  : thread, use_str, package(graphics), strict-sequence, warn(A-4-33-40-41-42-43-34-44)
+=======
+<**/*>  : thread, use_str, package(graphics), package(CS51Utils), strict-sequence, warn(A-4-33-40-41-42-43-34-44)
+>>>>>>> 73d46a5adc67265cffe993aec14bb7d91ca53f66

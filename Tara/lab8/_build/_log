@@ -1,0 +1,8 @@
+### Starting build.
+# Target: lab8_part1.ml.depends, tags: { package(graphics), warn(A-4-33-40-41-42-43-34-44), extension:ml, file:lab8_part1.ml, ocaml, ocamldep, quiet, strict-sequence, thread, traverse, use_str }
+ocamlfind ocamldep -package graphics -modules lab8_part1.ml > lab8_part1.ml.depends
+# Target: lab8_part1.cmo, tags: { package(graphics), warn(A-4-33-40-41-42-43-34-44), byte, compile, extension:cmo, extension:ml, file:lab8_part1.cmo, file:lab8_part1.ml, implem, ocaml, quiet, strict-sequence, thread, traverse, use_str }
+ocamlfind ocamlc -c -thread -strict-sequence -package graphics -w A-4-33-40-41-42-43-34-44 -o lab8_part1.cmo lab8_part1.ml
+# Target: lab8_part1.byte, tags: { package(graphics), warn(A-4-33-40-41-42-43-34-44), byte, dont_link_with, extension:byte, file:lab8_part1.byte, link, ocaml, program, quiet, strict-sequence, thread, traverse, use_str }
+ocamlfind ocamlc -linkpkg str.cma -thread -package graphics lab8_part1.cmo -o lab8_part1.byte
+# Compilation successful.

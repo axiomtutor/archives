@@ -36,7 +36,11 @@ let rec findCycle (wholeList : 'a mlist) (subList : 'a mlist) (indexCounter : in
             else 
               match wholeList with 
               | Nil -> failwith "this line shouldn't be reachable"
+<<<<<<< HEAD
               | Cons (_, {contents = newLst}) -> findCycle newLst subList (indexCounter - 1) 
+=======
+              | Cons (_, {contents = newLst}) -> findCycle newml1 subList (indexCounter - 1) 
+>>>>>>> 73d46a5adc67265cffe993aec14bb7d91ca53f66
          )
 
 let has_cycle (lst : 'a mlist) : bool =
@@ -81,9 +85,15 @@ let mlength (lst : 'a mlist) : int =
     | Cons (_, {contents = newml}) -> 
       match findCycle lst newml index with
       | Nil -> trackNode newml (index + 1) 
+<<<<<<< HEAD
       | Cons _ -> index
   in
   trackNode lst 0;;
+=======
+      | Cons (_, cyclePointer) -> index
+  in
+  trackNode lst 0; 
+>>>>>>> 73d46a5adc67265cffe993aec14bb7d91ca53f66
 
 (*======================================================================
 Reflection on the problem set
@@ -112,6 +122,7 @@ string below.
 
 let reflection () : string =
   "...your reflections here..." ;;
+<<<<<<< HEAD
 
 let noCyc = Cons (1, ref (Cons(1, ref (Cons (1, ref Nil)))));;
 let rec cyc = Cons (1, ref (Cons( 1, ref cyc)));;
@@ -123,3 +134,5 @@ let n = mlength cyc in
 flatten cyc;
 assert (not (has_cycle cyc));
 assert (n = mlength cyc)
+=======
+>>>>>>> 73d46a5adc67265cffe993aec14bb7d91ca53f66

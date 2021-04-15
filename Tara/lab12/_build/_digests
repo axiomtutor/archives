@@ -1,0 +1,4 @@
+"Rule: ocaml: cmo* -> byte (%=lab12 )": "\227\239\201s-eC\164\248\1470\196\\/\132\024"
+"Resource: /home/addem/Desktop/Tara/lab12/lab12.ml": "9h\t\017\254\212\255\019>\005Sv\182\158\140i"
+"Rule: ocaml dependencies ml (%=lab12 )": "\021O\191\242\180\207\237\211\b+,\158\176\214K\173"
+"Rule: ocaml: ml -> cmo & cmi (%=lab12 )": "\137S\173\216Z\162 \197\233Bc\209Z\r\205O"
