@@ -1,0 +1,25 @@
+### Starting build.
+# Target: lab12.ml.depends, tags: { package(graphics), warn(A-4-33-40-41-42-43-34-44), extension:ml, file:lab12.ml, ocaml, ocamldep, quiet, strict-sequence, thread, traverse, use_str }
+ocamlfind ocamldep -package graphics -modules lab12.ml > lab12.ml.depends
+# Target: lab12.cmo, tags: { package(graphics), warn(A-4-33-40-41-42-43-34-44), byte, compile, extension:cmo, extension:ml, file:lab12.cmo, file:lab12.ml, implem, ocaml, quiet, strict-sequence, thread, traverse, use_str }
+ocamlfind ocamlc -c -thread -strict-sequence -package graphics -w A-4-33-40-41-42-43-34-44 -o lab12.cmo lab12.ml
++ ocamlfind ocamlc -c -thread -strict-sequence -package graphics -w A-4-33-40-41-42-43-34-44 -o lab12.cmo lab12.ml
+File "lab12.ml", line 112, characters 12-13:
+112 | let gensym (s : string) : string =
+                  ^
+Warning 27: unused variable s.
+File "lab12.ml", line 165, characters 12-16:
+165 | let length (mlst : 'a mlist) : int =
+                  ^^^^
+Warning 27: unused variable mlst.
+File "lab12.ml", line 308, characters 29-56:
+308 |                              val to_string : t -> string
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Warning 32: unused value to_string.
+File "lab12.ml", line 334, characters 18-19:
+334 |     let to_string q =
+                        ^
+Warning 27: unused variable q.
+# Target: lab12.byte, tags: { package(graphics), warn(A-4-33-40-41-42-43-34-44), byte, dont_link_with, extension:byte, file:lab12.byte, link, ocaml, program, quiet, strict-sequence, thread, traverse, use_str }
+ocamlfind ocamlc -linkpkg str.cma -thread -package graphics lab12.cmo -o lab12.byte
+# Compilation successful.
