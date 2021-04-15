@@ -1,0 +1,12 @@
+### Starting build.
+# Target: lab5.ml.depends, tags: { package(graphics), warn(A-4-33-40-41-42-43-34-44), extension:ml, file:lab5.ml, ocaml, ocamldep, quiet, strict-sequence, thread, traverse, use_str }
+ocamlfind ocamldep -package graphics -modules lab5.ml > lab5.ml.depends
+# Target: lab5.cmo, tags: { package(graphics), warn(A-4-33-40-41-42-43-34-44), byte, compile, extension:cmo, extension:ml, file:lab5.cmo, file:lab5.ml, implem, ocaml, quiet, strict-sequence, thread, traverse, use_str }
+ocamlfind ocamlc -c -thread -strict-sequence -package graphics -w A-4-33-40-41-42-43-34-44 -o lab5.cmo lab5.ml
++ ocamlfind ocamlc -c -thread -strict-sequence -package graphics -w A-4-33-40-41-42-43-34-44 -o lab5.cmo lab5.ml
+File "lab5.ml", line 267, characters 21-25:
+267 | let display_person ({name; favorite; birthdate}) : unit =
+                           ^^^^
+Error: Unbound record field name
+Command exited with code 2.
+# Compilation unsuccessful.

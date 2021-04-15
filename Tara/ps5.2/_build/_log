@@ -1,0 +1,41 @@
+### Starting build.
+# Target: tests.ml.depends, tags: { package(graphics), warn(A-4-33-40-41-42-43-34-44), extension:ml, file:tests.ml, ocaml, ocamldep, quiet, strict-sequence, thread, traverse, use_str }
+ocamlfind ocamldep -package graphics -modules tests.ml > tests.ml.depends # cached
+# Target: order.ml.depends, tags: { package(graphics), warn(A-4-33-40-41-42-43-34-44), extension:ml, file:order.ml, ocaml, ocamldep, quiet, strict-sequence, thread, traverse, use_str }
+ocamlfind ocamldep -package graphics -modules order.ml > order.ml.depends # cached
+# Target: order.cmo, tags: { package(graphics), warn(A-4-33-40-41-42-43-34-44), byte, compile, extension:cmo, extension:ml, file:order.cmo, file:order.ml, implem, ocaml, quiet, strict-sequence, thread, traverse, use_str }
+ocamlfind ocamlc -c -thread -strict-sequence -package graphics -w A-4-33-40-41-42-43-34-44 -o order.cmo order.ml # cached
+# Target: orderedcoll.mli.depends, tags: { package(graphics), warn(A-4-33-40-41-42-43-34-44), extension:mli, file:orderedcoll.mli, ocaml, ocamldep, quiet, strict-sequence, thread, traverse, use_str }
+ocamlfind ocamldep -package graphics -modules orderedcoll.mli > orderedcoll.mli.depends # cached
+# Target: orderedcoll.cmi, tags: { package(graphics), warn(A-4-33-40-41-42-43-34-44), byte, compile, extension:mli, file:orderedcoll.mli, interf, ocaml, quiet, strict-sequence, thread, traverse, use_str }
+ocamlfind ocamlc -c -thread -strict-sequence -package graphics -w A-4-33-40-41-42-43-34-44 -o orderedcoll.cmi orderedcoll.mli # cached
+# Target: prioqueue.mli.depends, tags: { package(graphics), warn(A-4-33-40-41-42-43-34-44), extension:mli, file:prioqueue.mli, ocaml, ocamldep, quiet, strict-sequence, thread, traverse, use_str }
+ocamlfind ocamldep -package graphics -modules prioqueue.mli > prioqueue.mli.depends # cached
+# Target: prioqueue.cmi, tags: { package(graphics), warn(A-4-33-40-41-42-43-34-44), byte, compile, extension:mli, file:prioqueue.mli, interf, ocaml, quiet, strict-sequence, thread, traverse, use_str }
+ocamlfind ocamlc -c -thread -strict-sequence -package graphics -w A-4-33-40-41-42-43-34-44 -o prioqueue.cmi prioqueue.mli # cached
+# Target: tests.cmo, tags: { package(graphics), warn(A-4-33-40-41-42-43-34-44), byte, compile, extension:cmo, extension:ml, file:tests.cmo, file:tests.ml, implem, ocaml, quiet, strict-sequence, thread, traverse, use_str }
+ocamlfind ocamlc -c -thread -strict-sequence -package graphics -w A-4-33-40-41-42-43-34-44 -o tests.cmo tests.ml # cached
+# Target: orderedcoll.ml.depends, tags: { package(graphics), warn(A-4-33-40-41-42-43-34-44), extension:ml, file:orderedcoll.ml, ocaml, ocamldep, quiet, strict-sequence, thread, traverse, use_str }
+ocamlfind ocamldep -package graphics -modules orderedcoll.ml > orderedcoll.ml.depends # cached
+# Target: orderedcoll.cmo, tags: { package(graphics), warn(A-4-33-40-41-42-43-34-44), byte, compile, extension:cmo, extension:ml, file:orderedcoll.cmo, file:orderedcoll.ml, implem, ocaml, quiet, strict-sequence, thread, traverse, use_str }
+ocamlfind ocamlc -c -thread -strict-sequence -package graphics -w A-4-33-40-41-42-43-34-44 -o orderedcoll.cmo orderedcoll.ml # cached
+# Target: prioqueue.ml.depends, tags: { package(graphics), warn(A-4-33-40-41-42-43-34-44), extension:ml, file:prioqueue.ml, ocaml, ocamldep, quiet, strict-sequence, thread, traverse, use_str }
+ocamlfind ocamldep -package graphics -modules prioqueue.ml > prioqueue.ml.depends
+# Target: prioqueue.cmo, tags: { package(graphics), warn(A-4-33-40-41-42-43-34-44), byte, compile, extension:cmo, extension:ml, file:prioqueue.cmo, file:prioqueue.ml, implem, ocaml, quiet, strict-sequence, thread, traverse, use_str }
+ocamlfind ocamlc -c -thread -strict-sequence -package graphics -w A-4-33-40-41-42-43-34-44 -o prioqueue.cmo prioqueue.ml
++ ocamlfind ocamlc -c -thread -strict-sequence -package graphics -w A-4-33-40-41-42-43-34-44 -o prioqueue.cmo prioqueue.ml
+File "prioqueue.ml", line 341, characters 27-29:
+341 |       | TwoBranch (parity, d1, t1, t2) -> TwoBranch (parity, e, t1, t2) 
+                                 ^^
+Warning 27: unused variable d1.
+File "prioqueue.ml", line 491, characters 4-12:
+491 | let heapsort = sort heap_module ;;
+          ^^^^^^^^
+Warning 32: unused value heapsort.
+File "prioqueue.ml", line 498, characters 4-12:
+498 | let treesort = sort tree_module ;;
+          ^^^^^^^^
+Warning 32: unused value treesort.
+# Target: tests.byte, tags: { package(graphics), warn(A-4-33-40-41-42-43-34-44), byte, dont_link_with, extension:byte, file:tests.byte, link, ocaml, program, quiet, strict-sequence, thread, traverse, use_str }
+ocamlfind ocamlc -linkpkg str.cma -thread -package graphics order.cmo orderedcoll.cmo prioqueue.cmo tests.cmo -o tests.byte
+# Compilation successful.
