@@ -1,0 +1,4 @@
+"Rule: ocaml: ml -> cmo & cmi (%=refs )": "e\194\228\212T\200\012\165\230\251|\153\001D\176="
+"Rule: ocaml: cmo* -> byte (%=refs )": "\222\018ZRoH\195\201J\130\185\001\017\015{\180"
+"Resource: /home/addem/Desktop/archives/Tara/ps7/refs.ml": "\181OQ\204\182\149C\229\135\027T\169-b\215\190"
+"Rule: ocaml dependencies ml (%=refs )": "%\229\227\221\029B5V\191E\015\172\185\210c "

@@ -1,0 +1,8 @@
+### Starting build.
+# Target: refs.ml.depends, tags: { package(graphics), warn(A-4-33-40-41-42-43-34-44), extension:ml, file:refs.ml, ocaml, ocamldep, quiet, strict-sequence, thread, traverse, use_str }
+ocamlfind ocamldep -package graphics -modules refs.ml > refs.ml.depends
+# Target: refs.cmo, tags: { package(graphics), warn(A-4-33-40-41-42-43-34-44), byte, compile, extension:cmo, extension:ml, file:refs.cmo, file:refs.ml, implem, ocaml, quiet, strict-sequence, thread, traverse, use_str }
+ocamlfind ocamlc -c -thread -strict-sequence -package graphics -w A-4-33-40-41-42-43-34-44 -o refs.cmo refs.ml
+# Target: refs.byte, tags: { package(graphics), warn(A-4-33-40-41-42-43-34-44), byte, dont_link_with, extension:byte, file:refs.byte, link, ocaml, program, quiet, strict-sequence, thread, traverse, use_str }
+ocamlfind ocamlc -linkpkg str.cma -thread -package graphics refs.cmo -o refs.byte
+# Compilation successful.
